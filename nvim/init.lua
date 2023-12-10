@@ -1,0 +1,7 @@
+require('plugins.lazy')
+require('plugins.telescope')
+require('plugins.treesitter')
+-- require('plugins.treesitter-ecovim')
+require('lsp.setup')
+require('options')
+require('remap')
