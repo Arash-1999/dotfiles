@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+
 require('lazy').setup({
   -- fuzzy finder
 	{
@@ -97,4 +99,11 @@ require('lazy').setup({
   --     "rcarriga/nvim-notify",
   --   }
   -- },
+
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  }
 })
