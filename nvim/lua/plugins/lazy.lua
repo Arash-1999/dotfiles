@@ -100,10 +100,39 @@ require('lazy').setup({
   --   }
   -- },
 
+  -- file explorer
   {
     'stevearc/oil.nvim',
     opts = {},
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
+  -- highlight todos
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  },
+
+  -- comment
+  {
+    'numToStr/Comment.nvim',
+    -- opts = {},
+    lazy = false,
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    }
+  },
+
+  -- highlight indents
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    -- opts = {}
   }
 })
