@@ -15,17 +15,18 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 
 require('lazy').setup({
   -- fuzzy finder
-	{
-		'nvim-telescope/telescope.nvim',
+  {
+    'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-		dependencies = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+        build =
+        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
       }
     }
-	},
+  },
 
   -- colorscheme
   { 'rebelot/kanagawa.nvim' },
@@ -73,7 +74,7 @@ require('lazy').setup({
     },
   },
 
-  -- snippets 
+  -- snippets
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
@@ -134,5 +135,11 @@ require('lazy').setup({
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     -- opts = {}
-  }
+  },
+
+  -- better looking quickfix list
+  {
+    "kevinhwang91/nvim-bqf",
+  },
+
 })
