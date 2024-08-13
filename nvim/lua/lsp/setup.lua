@@ -1,3 +1,5 @@
-require('lsp.mason-setup')
-require('lsp.cmp-setup')
-require('lsp.lspconfig-setup')
+require("lsp.mason-setup")
+require("lsp.cmp-setup")
+require("lsp.lspconfig-setup")
+require("lsp.conform")
+require("lsp.mason-formatters").setup()

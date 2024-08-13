@@ -1,5 +1,5 @@
-vim.cmd [[colorscheme kanagawa-dragon]]
-vim.cmd.set('termguicolors')
+vim.cmd([[colorscheme kanagawa-dragon]])
+vim.cmd.set("termguicolors")
 
 -- large cursor
 vim.opt.guicursor = ""
