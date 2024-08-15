@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
 		"tailwindcss",
 		"pyright",
 		"tsserver",
+		"emmet_ls",
 		"rust_analyzer",
 		"gopls",
 	},

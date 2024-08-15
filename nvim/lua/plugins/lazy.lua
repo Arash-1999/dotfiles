@@ -17,7 +17,7 @@ require("lazy").setup({
 	-- fuzzy finder
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
+		tag = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -39,7 +39,7 @@ require("lazy").setup({
 		build = ":TSUpdate",
 	},
 	{
-		"saadparwaiz1/cmp_luasnip",
+		"norcalli/nvim-colorizer.lua",
 	},
 
 	-- vs code: tempalte string converted
@@ -75,15 +75,15 @@ require("lazy").setup({
 			"hrsh7th/cmp-cmdline",
 		},
 	},
-	{
-		"norcalli/nvim-colorizer.lua",
-	},
 
 	-- snippets
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 		build = "make install_jsregexp",
+	},
+	{
+		"saadparwaiz1/cmp_luasnip",
 	},
 
 	-- formatter
@@ -144,8 +144,49 @@ require("lazy").setup({
 		-- opts = {}
 	},
 
+	-- markdown preview
+	{
+		-- install without yarn or npm
+		-- *** *** *** *** *** --
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		-- *** *** *** *** *** --
+
+		-- uncomment to install with yarn or npm
+		-- *** *** *** *** *** --
+		-- "iamcco/markdown-preview.nvim",
+		-- cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		-- build = "cd app && yarn install",
+		-- init = function()
+		--   vim.g.mkdp_filetypes = { "markdown" }
+		-- end,
+		-- ft = { "markdown" },
+		-- *** *** *** *** *** --
+	},
+
+	-- postman/insomnia alternative (rest api platform)
+	{
+		"vhyrro/luarocks.nvim",
+		priority = 1000,
+		config = true,
+		opts = {
+			rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
+		},
+	},
+	{
+		"rest-nvim/rest.nvim",
+		ft = "http",
+		dependencies = { "luarocks.nvim" },
+	},
+
 	-- better looking quickfix list
 	{
 		"kevinhwang91/nvim-bqf",
 	},
+
+	-- hiphish/rainbow-delimiters.nvim
 })
