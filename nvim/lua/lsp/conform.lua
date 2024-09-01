@@ -13,6 +13,7 @@ conform.setup({
 		yaml = { "prettier" },
 		markdown = { "prettier" },
 		graphql = { "prettier" },
+		svg = { "xmlformat" },
 	},
 
 	format_on_save = {
@@ -21,6 +22,10 @@ conform.setup({
 		timeout_ms = 500,
 	},
 })
+
+conform.formatters.xmlformat = {
+	prepend_args = { "--selfclose" },
+}
 
 vim.keymap.set("n", "<leader>fp", function()
 	conform.format({
