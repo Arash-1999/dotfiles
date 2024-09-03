@@ -94,6 +94,11 @@ lspconfig.rust_analyzer.setup({
 	handlers = handlers,
 	on_attach = on_attach,
 })
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+	handlers = handlers,
+	on_attach = on_attach,
+})
 
 -- global mappings
 -- -- Diagnostic

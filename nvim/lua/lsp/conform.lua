@@ -14,6 +14,7 @@ conform.setup({
 		markdown = { "prettier" },
 		graphql = { "prettier" },
 		svg = { "xmlformat" },
+		go = { "gofmt" },
 	},
 
 	format_on_save = {

@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"tsserver",
 		"rust_analyzer",
+		"gopls",
 	},
 
 	automatic_installation = true,
