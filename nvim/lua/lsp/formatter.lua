@@ -1,5 +1,14 @@
 local conform = require("conform")
 
+local M = {}
+
+M.ensure_installed = {
+	"stylua",
+	"biome",
+	"prettier",
+	"xmlformatter",
+}
+
 conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
@@ -35,3 +44,5 @@ vim.keymap.set("n", "<leader>fp", function()
 		timeout_ms = 500,
 	})
 end)
+
+return M

@@ -51,25 +51,10 @@ local function try_install(mason_package_name)
 end
 
 local function auto_install()
-	local formatters_by_ft = require("conform").formatters_by_ft
-	local formatters_to_install = {}
+	local ensure_installed = require("lsp.formatter").ensure_installed
 
-	for _, formatters in pairs(formatters_by_ft) do
-		for _, formatter in pairs(formatters) do
-			if type(formatter) == "table" then
-				for _, f in pairs(formatter) do
-					formatters_to_install[f] = 1
-				end
-			else
-				formatters_to_install[formatter] = 1
-			end
-		end
-	end
-
-	for conformFormatter, _ in pairs(formatters_to_install) do
-		if conformFormatter ~= nil then
-			try_install(conformFormatter)
-		end
+	for _, formatter in pairs(ensure_installed) do
+		try_install(formatter)
 	end
 end
 
