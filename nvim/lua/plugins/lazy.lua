@@ -28,7 +28,12 @@ require("lazy").setup({
 	},
 
 	-- colorscheme
-	{ "rebelot/kanagawa.nvim" },
+	{
+		"rebelot/kanagawa.nvim",
+		config = {
+			transparent = true,
+		},
+	},
 
 	-- syntax highlighting
 	{
@@ -148,14 +153,27 @@ require("lazy").setup({
 	{
 		-- install without yarn or npm
 		-- *** *** *** *** *** --
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
 		-- *** *** *** *** *** --
 
+		{
+			-- Install markdown preview, use npx if available.
+			"iamcco/markdown-preview.nvim",
+			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+			ft = { "markdown" },
+			build = function(plugin)
+				if vim.fn.executable("npx") then
+					vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install")
+				else
+					vim.cmd([[Lazy load markdown-preview.nvim]])
+					vim.fn["mkdp#util#install"]()
+				end
+			end,
+			init = function()
+				if vim.fn.executable("npx") then
+					vim.g.mkdp_filetypes = { "markdown" }
+				end
+			end,
+		},
 		-- uncomment to install with yarn or npm
 		-- *** *** *** *** *** --
 		-- "iamcco/markdown-preview.nvim",
@@ -169,19 +187,19 @@ require("lazy").setup({
 	},
 
 	-- postman/insomnia alternative (rest api platform)
-	{
-		"vhyrro/luarocks.nvim",
-		priority = 1000,
-		config = true,
-		opts = {
-			rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
-		},
-	},
-	{
-		"rest-nvim/rest.nvim",
-		ft = "http",
-		dependencies = { "luarocks.nvim" },
-	},
+	-- {
+	-- 	"vhyrro/luarocks.nvim",
+	-- 	priority = 1000,
+	-- 	config = true,
+	-- 	opts = {
+	-- 		rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
+	-- 	},
+	-- },
+	-- {
+	-- 	"rest-nvim/rest.nvim",
+	-- 	ft = "http",
+	-- 	dependencies = { "luarocks.nvim" },
+	-- },
 
 	-- better looking quickfix list
 	{
