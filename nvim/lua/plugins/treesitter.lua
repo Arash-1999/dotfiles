@@ -19,6 +19,7 @@ require("nvim-treesitter.configs").setup({
 		"http",
 		"json",
 		"graphql",
+		"sql",
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
