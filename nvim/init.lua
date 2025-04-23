@@ -1,14 +1,4 @@
-require("plugins.lazy")
-require("plugins.telescope")
-require("plugins.treesitter")
-require("plugins.file-explorer")
-require("plugins.comment")
-require("plugins.indent-highlight")
-require("plugins.rest-nvim")
-
-require("lsp.setup")
+require("config.lazy")
 
 require("options")
 require("remap")
-
-require("plugins.highlight-color")
