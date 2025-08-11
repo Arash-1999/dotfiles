@@ -44,11 +44,14 @@ return {
       },
       opts_extend = { "sources.default" }
     },
+    "stevearc/conform.nvim"
 	},
 	opts = {
 		servers = {
+      'eslint',
 			'bashls',
 			'ts_ls',
+      'tailwindcss',
       jsonls = require('config.lsp.jsonls'),
       lua_ls = require('config.lsp.luals'),
       cssls = require('config.lsp.cssls')
@@ -100,6 +103,8 @@ return {
       config.capabilities = blink_cmp.get_lsp_capabilities(config.capabilities)
       lspconfig[server].setup(config)
     end
+
+    require('config.formatter').setup()
 
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function ()
